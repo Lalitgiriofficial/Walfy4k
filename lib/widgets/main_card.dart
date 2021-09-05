@@ -6,8 +6,10 @@ import 'package:walfy4k/pages/WallpaperPage.dart';
 class MainCard extends StatelessWidget {
   final String image;
 
-  MainCard({Key? key, this.image='android/assets/1.jpg'}) : super(key: key);
-   static double getrandom(){
+
+  MainCard({required this.image});
+
+  static double getrandom(){
      final double y=Random().nextInt(250)/100;
      if(y<1.2)return getrandom();
      else return y;
@@ -27,7 +29,7 @@ class MainCard extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(this.image ),
+                image: NetworkImage(this.image ),
                 fit: BoxFit.cover,
 
               ),
