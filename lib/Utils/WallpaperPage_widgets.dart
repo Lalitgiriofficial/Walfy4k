@@ -12,7 +12,7 @@ final EdgeInsets padding;
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(this.image),
+              image: NetworkImage(this.image),
               fit: BoxFit.cover
           )
       ),

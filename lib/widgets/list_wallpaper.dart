@@ -1,47 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:walfy4k/Utils/Wallpaper_model.dart';
 import 'package:walfy4k/widgets/main_card.dart';
 import 'package:velocity_x/velocity_x.dart';
+
 class WallpaperList extends StatefulWidget {
-  
+ final  List<Photos> wallpapers;
+final List<Widget> column1 , column2 ;
+
+
   @override
-  _WallpaperListState createState() => _WallpaperListState();
+  WallpaperListState createState() => WallpaperListState();
+
+ WallpaperList({required this.wallpapers,required this.column1,required this.column2});
 }
 
-class _WallpaperListState extends State<WallpaperList> {
-  List<Widget> column1=[],column2=[];
+class WallpaperListState extends State<WallpaperList> {
 
-  final int qtdWallpaper=7;
 
-  void populateList(){
-    for(int i=1;i<=qtdWallpaper;i++){
-      if(i.isOdd)column1.add(MainCard(image: 'android/assets/${i.toString()}.jpg',));
-      else column2.add(MainCard(image: 'android/assets/${i.toString()}.jpg',));
-    }
-  }
- @override
-  void initState() {
-    populateList();
 
-    super.initState();
-  }
+
+
   @override
   Widget build(BuildContext context) {
-    return     Row(
+
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children:  column1,
+            children: widget.column1,
           ),
         ),
-        SizedBox(width: 10,),
+        SizedBox(
+          width: 10,
+        ),
         Expanded(
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-            children: column2
-          ),
+              mainAxisAlignment: MainAxisAlignment.start, children: widget.column2),
         )
       ],
     );

@@ -3,10 +3,12 @@ import 'package:walfy4k/Utils/WallpaperPage_widgets.dart';
 import 'package:walfy4k/widgets/BackButton.dart';
 import 'package:walfy4k/widgets/Buttons.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'homepage.dart';
 class WallPaperPage extends StatelessWidget {
   final String image;
 
-  const WallPaperPage({Key? key,required this.image}) : super(key: key);
+
+  WallPaperPage({required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,8 @@ class WallPaperPage extends StatelessWidget {
       tag: Key(this.image),
       child: Stack(
         children: [
-          BackgroundImage(image: this.image,
+          BackgroundImage(
+          image: this.image,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
