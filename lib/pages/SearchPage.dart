@@ -66,75 +66,75 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: MainBackButton(),
-        elevation: 0.0,
-        title:   Container(
-            height: 45,
-            width: 280,
-            decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(30)),
-            // margin: EdgeInsets.symmetric(
-            //     horizontal: 25, vertical: 10),
-            padding: EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
-            child: Row(
-              children: [
-                TextFormField(
-                  autocorrect: true,
-                  controller: textEditingController,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Search Wallpaper',
-                  ),
-                ).w(200),
-                GestureDetector(
-                  onTap: () {
-                    FocusScope.of(context).unfocus();
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Search(
-                                searchQuery:
-                                textEditingController
-                                    .text)));
-                  },
+        appBar: AppBar(
+          leading: MainBackButton(Colors.black87),
+          elevation: 0.0,
+          title:   Container(
+              height: 45,
+              width: 280,
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(30)),
+              // margin: EdgeInsets.symmetric(
+              //     horizontal: 25, vertical: 10),
+              padding: EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Row(
+                children: [
+                  TextFormField(
+                    autocorrect: true,
+                    controller: textEditingController,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Search Wallpaper',
+                    ),
+                  ).w(200),
+                  GestureDetector(
+                    onTap: () {
+                      FocusScope.of(context).unfocus();
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Search(
+                                  searchQuery:
+                                  textEditingController
+                                      .text)));
+                    },
 
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                )
-              ],
-            )),
-        toolbarHeight: 80,
-      ),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              )),
+          toolbarHeight: 80,
+        ),
         resizeToAvoidBottomInset: false,
         body: GradientBackground(
           pading: EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: wallpapers.length != 0
               ? SingleChildScrollView(
-            physics: ClampingScrollPhysics(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 18.0),
-                    child: Column(
-                      children: [
+            physics: BouncingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 18.0),
+              child: Column(
+                children: [
 
-                        WallpaperList(
-                            wallpapers: wallpapers,
-                            column1: column1,
-                            column2: column2)
-                      ],
-                    ),
-                  ),
-                )
+                  WallpaperList(
+                      wallpapers: wallpapers,
+                      column1: column1,
+                      column2: column2)
+                ],
+              ),
+            ),
+          )
               : Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.transparent,
-                  ),
-                ),
+            child: CircularProgressIndicator(
+              color: Colors.transparent,
+            ),
+          ),
         ));
   }
 

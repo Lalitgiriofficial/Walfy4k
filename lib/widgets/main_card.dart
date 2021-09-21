@@ -10,17 +10,17 @@ class MainCard extends StatelessWidget {
   MainCard({required this.image});
 
   static double getrandom(){
-     final double y=Random().nextInt(250)/100;
-     if(y<1.2)return getrandom();
-     else return y;
-   }
-   final double y=getrandom();
+    final double y=Random().nextInt(250)/100;
+    if(y<1.2)return getrandom();
+    else return y;
+  }
+  final double y=getrandom();
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
-     onTap: (){
-       Navigator.push(context,MaterialPageRoute(builder: (context)=>WallPaperPage(image: this.image,)));
-     },
+      onTap: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>WallPaperPage(image: this.image,)));
+      },
       child: AspectRatio(
         aspectRatio: 1/y,
         child: Hero(
@@ -28,11 +28,11 @@ class MainCard extends StatelessWidget {
           child: Container(
             margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(this.image ),
-                fit: BoxFit.cover,
+                image: DecorationImage(
+                  image: NetworkImage(this.image ),
+                  fit: BoxFit.cover,
 
-              ),
+                ),
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(10)
             ),

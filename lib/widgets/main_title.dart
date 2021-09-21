@@ -54,8 +54,8 @@ class MainTitle extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => Search(
-                                  searchQuery: textEditingController.text,
-                                )));
+                              searchQuery: textEditingController.text,
+                            )));
                   },
                   child: Icon(
                     Icons.search,
