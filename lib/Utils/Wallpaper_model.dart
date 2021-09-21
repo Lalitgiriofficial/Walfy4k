@@ -77,10 +77,10 @@ class Photos {
   @override
   int get hashCode {
     return id.hashCode ^
-        url.hashCode ^
-        photographer.hashCode ^
-        photographer_id.hashCode ^
-        src.hashCode;
+    url.hashCode ^
+    photographer.hashCode ^
+    photographer_id.hashCode ^
+    src.hashCode;
   }
 }
 
